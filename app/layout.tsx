@@ -1,3 +1,12 @@
+import{
+  ClerkProvider,
+  Show,
+  SignInButton,
+  SignUpButton,
+  UserButton,
+} from "@clerk/nextjs"
+import { shadcn } from "@clerk/ui/themes"
+
 import { Geist, Geist_Mono } from "next/font/google"
 
 import "./globals.css"
