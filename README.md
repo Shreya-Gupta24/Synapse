@@ -1,115 +1,212 @@
 ﻿<div align="center">
 
 <br />
-<br />
 
-<h1>Synapse</h1>
+# 🧠 Synapse
 
-<p><strong>Design in real time. Execute in cloud browsers. Replay every run.</strong></p>
+### **Design in real time. Execute in cloud browsers. Replay every run.**
 
-<p>A collaborative visual workflow builder powered by Stagehand, Browserbase, Trigger.dev, and Liveblocks.</p>
-
-<p>
-  <a href="#features">Features</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;
-  <a href="#workflow-nodes">Nodes</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;
-  <a href="#getting-started">Quick start</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;
-  <a href="#deploy-on-railway">Deploy</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;
-  <a href="#how-it-works">Architecture</a>
-</p>
+*A full-stack SaaS platform for building, running, and collaborating on AI-powered browser automations — visually.*
 
 <br />
 
-<p>
-  <a href="https://browserbase.com"><img src="https://img.shields.io/badge/Browserbase-0A0A0A?style=for-the-badge" alt="Browserbase" /></a>&nbsp;
-  <a href="https://trigger.dev"><img src="https://img.shields.io/badge/Trigger.dev-635BFF?style=for-the-badge" alt="Trigger.dev" /></a>&nbsp;
-  <a href="https://liveblocks.io"><img src="https://img.shields.io/badge/Liveblocks-111111?style=for-the-badge" alt="Liveblocks" /></a>&nbsp;
-  <a href="https://neon.tech"><img src="https://img.shields.io/badge/Neon-00E599?style=for-the-badge&logo=neon&logoColor=black" alt="Neon" /></a>&nbsp;
-  <a href="https://clerk.com"><img src="https://img.shields.io/badge/Clerk-6C47FF?style=for-the-badge&logo=clerk&logoColor=white" alt="Clerk" /></a>&nbsp;
-  <a href="https://sentry.io"><img src="https://img.shields.io/badge/Sentry-362D59?style=for-the-badge&logo=sentry&logoColor=white" alt="Sentry" /></a>&nbsp;
-  <a href="https://railway.app"><img src="https://img.shields.io/badge/Railway-0B0D0E?style=for-the-badge&logo=railway&logoColor=white" alt="Railway" /></a>
-</p>
+[![Next.js](https://img.shields.io/badge/Next.js_16-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)](https://nextjs.org)
+[![React](https://img.shields.io/badge/React_19-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev)
+[![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://typescriptlang.org)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
+
+<br />
+
+[![Browserbase](https://img.shields.io/badge/Browserbase-0A0A0A?style=for-the-badge)](https://browserbase.com)
+[![Trigger.dev](https://img.shields.io/badge/Trigger.dev-635BFF?style=for-the-badge)](https://trigger.dev)
+[![Liveblocks](https://img.shields.io/badge/Liveblocks-111111?style=for-the-badge)](https://liveblocks.io)
+[![Neon](https://img.shields.io/badge/Neon_Postgres-00E599?style=for-the-badge&logo=neon&logoColor=black)](https://neon.tech)
+[![Clerk](https://img.shields.io/badge/Clerk-6C47FF?style=for-the-badge&logo=clerk&logoColor=white)](https://clerk.com)
+[![Sentry](https://img.shields.io/badge/Sentry-362D59?style=for-the-badge&logo=sentry&logoColor=white)](https://sentry.io)
+[![Railway](https://img.shields.io/badge/Railway-0B0D0E?style=for-the-badge&logo=railway&logoColor=white)](https://railway.app)
+
+<br />
+
+[Features](#-features) &nbsp;·&nbsp; [Architecture](#-architecture) &nbsp;·&nbsp; [Workflow Nodes](#-workflow-nodes) &nbsp;·&nbsp; [Getting Started](#-getting-started) &nbsp;·&nbsp; [Deploy](#-deploy-on-railway) &nbsp;·&nbsp; [Stack](#-tech-stack)
 
 </div>
 
-<br />
+---
 
-> Build automations as connected nodes, watch every step execute live, and inspect the complete browser session when the run is finished.
+## 💡 What is Synapse?
+
+Synapse is a **collaborative, no-code browser automation SaaS** that lets teams visually build automation workflows on a shared canvas, execute them inside real cloud browsers using AI, and watch every step run in real time.
+
+```
+ User types an instruction  →  AI understands it  →  Real browser executes it  →  You watch it live
+```
+
+Think of it as a **visual programming environment for the web** — where each node is a browser action, and the canvas is your automation logic.
 
 ---
 
-## Features
+## ✨ Features
 
-<table>
-  <tr>
-    <td width="50%" valign="top">
-      <strong>Visual workflow canvas</strong><br />
-      Compose browser automations with draggable, connectable React Flow nodes.
-    </td>
-    <td width="50%" valign="top">
-      <strong>Real-time collaboration</strong><br />
-      Edit together with Liveblocks-powered shared state, cursors, and presence.
-    </td>
-  </tr>
-  <tr>
-    <td width="50%" valign="top">
-      <strong>AI browser actions</strong><br />
-      Navigate, act, observe, extract, and run autonomous tasks with Stagehand.
-    </td>
-    <td width="50%" valign="top">
-      <strong>Connected data</strong><br />
-      Pass outputs downstream with <code>{{ nodeId.path }}</code> expressions.
-    </td>
-  </tr>
-  <tr>
-    <td width="50%" valign="top">
-      <strong>Durable execution</strong><br />
-      Run long-lived Trigger.dev tasks with retries, cancellation, and live status.
-    </td>
-    <td width="50%" valign="top">
-      <strong>Run observability</strong><br />
-      Inspect step timing, outputs, failures, and complete Browserbase replays.
-    </td>
-  </tr>
-  <tr>
-    <td width="50%" valign="top">
-      <strong>Organization workspaces</strong><br />
-      Isolate workflows and collaborative rooms by Clerk organization.
-    </td>
-    <td width="50%" valign="top">
-      <strong>SaaS-ready foundation</strong><br />
-      Ship with Clerk Billing gates, Resend email nodes, and Sentry monitoring.
-    </td>
-  </tr>
-</table>
-
-<br />
-
-## Workflow Nodes
-
-| Node | Description | Outputs |
-|------|-------------|---------|
-| Start | Starts a connected workflow | None |
-| Open URL | Navigates the shared browser session to a URL | URL, title |
-| Act | Performs a natural-language browser action | Success, message, URL |
-| Extract | Extracts page content from a natural-language instruction | Extraction |
-| Observe | Finds matching browser elements and actions | Matches, selector, description |
-| Agent | Runs a multi-step autonomous browser task | Success, message, completed |
-| Send Email | Sends an HTML email through Resend | Email ID |
+| | Feature | Description |
+|---|---|---|
+| 🎨 | **Visual Workflow Canvas** | Drag-and-drop React Flow nodes to compose automations without writing scripts |
+| 🤝 | **Real-Time Collaboration** | Multiple users edit the same canvas simultaneously with live cursors and presence |
+| 🤖 | **AI Browser Control** | Natural-language instructions power real browser actions via Stagehand |
+| 🔗 | **Data Passthrough** | Chain nodes with `{{ nodeId.field }}` expressions to pass outputs downstream |
+| ⚡ | **Durable Execution** | Long-running jobs with automatic retries, cancellation, and fault tolerance |
+| 📺 | **Live Run Console** | Watch each node's status, timing, and output stream in real time |
+| 🎬 | **Session Replay** | Rewind and replay the full browser recording after every run |
+| 🏢 | **Multi-Tenant Workspaces** | Every organization gets its own isolated workflows and collaboration rooms |
+| 💳 | **SaaS Billing** | Clerk Billing gates Pro features like Agent nodes and session replay |
+| 🔍 | **Error Monitoring** | Sentry captures frontend, server, edge, and background task errors |
 
 ---
 
-## Getting Started
+## 🏗️ Architecture
+
+### System Overview
+
+```mermaid
+flowchart TD
+    subgraph Client["🖥️  Client (Next.js 19 / React 19)"]
+        A[React Flow Canvas]
+        B[Live Run Console]
+        C[Session Replay Viewer]
+    end
+
+    subgraph Sync["🔄  Real-Time Sync"]
+        D[Liveblocks Room\nNodes · Edges · Cursors · Presence]
+    end
+
+    subgraph Backend["🗄️  Backend (Next.js API Routes)"]
+        E[Server Actions\nSave · Execute · Cancel]
+        F[Liveblocks Auth]
+        G[Replay Proxy]
+    end
+
+    subgraph DB["💾  Database"]
+        H[(Neon Postgres\nDrizzle ORM)]
+    end
+
+    subgraph Jobs["⚙️  Background Jobs"]
+        I[Trigger.dev Task Runner]
+        J[Stagehand Agent]
+        K[Browserbase Cloud Browser]
+    end
+
+    subgraph Infra["📦  Infrastructure"]
+        L[Clerk Auth + Billing]
+        M[Resend Email]
+        N[Sentry Monitoring]
+    end
+
+    A <-->|live sync| D
+    A -->|save snapshot| E
+    E --> H
+    E --> I
+    I -->|AI instructions| J
+    J -->|controls| K
+    I -->|step events| B
+    K -->|recording| G
+    G --> C
+    Backend --- Infra
+```
+
+### Execution Flow
+
+```mermaid
+sequenceDiagram
+    participant U as 👤 User
+    participant C as 🖥️ Canvas
+    participant S as ⚙️ Server Action
+    participant T as 🔁 Trigger.dev
+    participant AI as 🤖 Stagehand
+    participant BB as 🌐 Browserbase
+
+    U->>C: Click "Run Workflow"
+    C->>S: Validate graph + save snapshot
+    S->>T: Enqueue workflow task
+    T->>T: Topological sort nodes
+    loop For each node (in order)
+        T->>AI: Execute node instruction
+        AI->>BB: Open / navigate / act / extract
+        BB-->>AI: Result
+        AI-->>T: Node output
+        T-->>C: Stream live status + output
+    end
+    BB-->>C: Session recording available
+    U->>C: Click "Replay" to review run
+```
+
+### Data Flow Between Nodes
+
+```mermaid
+flowchart LR
+    N1["🔵 Start"]
+    N2["🌐 Open URL\noutput: title, url"]
+    N3["🤖 Extract\ninput: '{{n2.title}}'\noutput: extraction"]
+    N4["📧 Send Email\nbody: '{{n3.extraction}}'"]
+
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+```
+
+Outputs from any node are stored by node ID and injected into downstream inputs using `{{ nodeId.field }}` template expressions — enabling complex multi-step data pipelines with no code.
+
+---
+
+## 🧩 Workflow Nodes
+
+```mermaid
+mindmap
+  root((Synapse Nodes))
+    🔵 Start
+      Triggers the workflow
+    🌐 Open URL
+      Navigates browser to a URL
+      Outputs title and url
+    🎯 Act
+      Natural-language browser action
+      Click, type, scroll, submit
+    🔎 Extract
+      Pull structured data from pages
+      Returns extracted content
+    👁️ Observe
+      Find elements and possible actions
+      Returns selector and description
+    🦾 Agent
+      Autonomous multi-step AI task
+      Pro plan required
+    📧 Send Email
+      HTML email via Resend
+      Returns email ID
+```
+
+| Node | What it does | Key Outputs |
+|------|-------------|-------------|
+| **Start** | Entry point — triggers the workflow | — |
+| **Open URL** | Navigates the cloud browser to any URL | `url`, `title` |
+| **Act** | Executes a natural-language action on the page | `success`, `message`, `url` |
+| **Extract** | Pulls structured content from the page via AI | `extraction` |
+| **Observe** | Identifies elements and actions available on screen | `selector`, `description`, `matches` |
+| **Agent** | Runs a fully autonomous multi-step browser task *(Pro)* | `success`, `completed`, `message` |
+| **Send Email** | Sends a rich HTML email via Resend | `emailId` |
+
+---
+
+## 🚀 Getting Started
 
 ### Prerequisites
 
-- Node.js and npm
-- [Clerk](https://clerk.com) application with Organizations enabled
-- PostgreSQL database, such as [Neon](https://neon.tech)
-- [Trigger.dev](https://trigger.dev) project
-- [Liveblocks](https://liveblocks.io) project
-- [Browserbase](https://browserbase.com) account
-- [Resend](https://resend.com) account
-- Optional [Sentry](https://sentry.io) project for error monitoring and source maps
+- Node.js 18+ and npm
+- [Clerk](https://clerk.com) — Auth + Organizations + Billing
+- [Neon](https://neon.tech) — Serverless Postgres
+- [Trigger.dev](https://trigger.dev) — Background job runner
+- [Liveblocks](https://liveblocks.io) — Real-time collaboration
+- [Browserbase](https://browserbase.com) — Managed cloud browsers
+- [Resend](https://resend.com) — Transactional email
+- [Sentry](https://sentry.io) *(optional)* — Error monitoring
 
 ### 1. Clone and install
 
@@ -125,29 +222,32 @@ npm install
 cp .env.example .env.local
 ```
 
-Fill in the service credentials in `.env.local`:
-
 ```bash
+# Clerk
 NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
 NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
 NEXT_PUBLIC_CLERK_SIGN_IN_FALLBACK_REDIRECT_URL=/
 NEXT_PUBLIC_CLERK_SIGN_UP_FALLBACK_REDIRECT_URL=/
-
 NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
 CLERK_SECRET_KEY=
 
+# Neon Postgres
 NEON_BRANCH=main
 DATABASE_URL=
 DATABASE_URL_UNPOOLED=
 
+# Trigger.dev
 TRIGGER_SECRET_KEY=
 
+# Liveblocks
 NEXT_PUBLIC_LIVEBLOCKS_PUBLIC_KEY=
 LIVEBLOCKS_SECRET_KEY=
 
+# Browserbase + Resend
 BROWSERBASE_API_KEY=
 RESEND_API_KEY=
 
+# Sentry (optional)
 NEXT_PUBLIC_SENTRY_DSN=
 SENTRY_DSN=
 SENTRY_AUTH_TOKEN=
@@ -155,209 +255,173 @@ SENTRY_AUTH_TOKEN=
 
 ### 3. Configure Clerk
 
-Create a Clerk application and enable Organizations. The dashboard requires an active organization, and every workflow is scoped to the current organization.
-
-To enable paid features, configure Clerk Billing with an organization plan whose slug is exactly `pro`. Agent nodes and Browserbase session replay check this plan in both the UI and server-side actions.
+Enable **Organizations** in your Clerk dashboard — every workflow is scoped to an organization. For Pro features (Agent node, session replay), create a Clerk Billing plan with the slug `pro`.
 
 ### 4. Set up the database
 
-Generate and apply the Drizzle migrations:
-
 ```bash
-npm run db:generate
-npm run db:migrate
+npm run db:generate   # generate Drizzle migrations
+npm run db:migrate    # apply to Neon
 ```
 
-For local prototyping, you can push the schema directly:
+### 5. Start the Trigger.dev worker
 
 ```bash
-npm run db:push
+npx trigger.dev dev   # run in a separate terminal
 ```
 
-`DATABASE_URL_UNPOOLED` is preferred for migrations. Drizzle falls back to `DATABASE_URL` when the unpooled URL is unavailable.
-
-### 5. Configure integrations
-
-Create projects in Trigger.dev and Liveblocks, then add their keys to `.env.local`. Add your Browserbase API key for Stagehand execution and session replay, and a Resend API key for the Send Email node.
-
-The Stagehand model runs through Browserbase Model Gateway, so no separate model-provider API key is required.
-
-### 6. Run Trigger.dev
-
-Start the Trigger.dev development worker in a separate terminal:
-
-```bash
-npx trigger.dev dev
-```
-
-The worker discovers tasks under `features/` using `trigger.config.ts`.
-
-### 7. Run the app
+### 6. Run the app
 
 ```bash
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000), sign in, select or create an organization, and create your first workflow.
+Visit [http://localhost:3000](http://localhost:3000), sign in, create an organization, and build your first automation. 🎉
 
 ---
 
-## Deploy on Railway
-
-[Railway](https://railway.app) can build and host the Next.js application directly from this repository.
-
-### 1. Create the service
-
-Push the repository to GitHub, create a Railway project, and choose **Deploy from GitHub repo**. Railway Railpack detects the Node.js application and installs dependencies from `package-lock.json`.
-
-If automatic detection needs to be overridden, use:
-
-| Setting | Value |
-|---------|-------|
-| Build command | `npm run build` |
-| Start command | `npm start` |
-
-You can also deploy the current directory with the Railway CLI:
-
-```bash
-railway login
-railway init
-railway up --detach -m "Initial deployment"
-```
-
-### 2. Add production variables
-
-Copy the values from `.env.local` into the Railway service variables. Use production credentials for Clerk, Neon, Trigger.dev, Liveblocks, Browserbase, Resend, and Sentry.
-
-```bash
-NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
-NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
-NEXT_PUBLIC_CLERK_SIGN_IN_FALLBACK_REDIRECT_URL=/
-NEXT_PUBLIC_CLERK_SIGN_UP_FALLBACK_REDIRECT_URL=/
-
-NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
-CLERK_SECRET_KEY=
-
-DATABASE_URL=
-DATABASE_URL_UNPOOLED=
-TRIGGER_SECRET_KEY=
-NEXT_PUBLIC_LIVEBLOCKS_PUBLIC_KEY=
-LIVEBLOCKS_SECRET_KEY=
-BROWSERBASE_API_KEY=
-RESEND_API_KEY=
-
-NEXT_PUBLIC_SENTRY_DSN=
-SENTRY_DSN=
-SENTRY_AUTH_TOKEN=
-```
-
-`SENTRY_AUTH_TOKEN` is only required when uploading source maps during the production build.
-
-### 3. Prepare production services
-
-Apply the committed Drizzle migrations to the production database before serving traffic:
-
-```bash
-npm run db:migrate
-```
-
-Deploy the workflow task to Trigger.dev separately. Railway hosts the Next.js application, while Trigger.dev executes the durable background workflows:
-
-```bash
-npx trigger.dev deploy
-```
-
-Make sure the Railway service uses the production `TRIGGER_SECRET_KEY` from the same Trigger.dev project and environment.
-
-### 4. Configure the domain
-
-Generate a Railway domain from the service settings or connect a custom domain. Add the production domain to your Clerk application and any service allowlists that restrict application origins.
-
-Every push to the connected branch creates a new Railway deployment. Check the build and runtime logs from the Railway dashboard if a release fails.
-
----
-
-## How It Works
+## 🚢 Deploy on Railway
 
 ```mermaid
 flowchart LR
-    A[React Flow canvas] -->|sync| B[Liveblocks room]
-    A -->|validate and save| C[(Neon Postgres)]
-    C --> D[Trigger.dev task]
-    D --> E[Stagehand]
-    E --> F[Browserbase session]
-    D -->|step metadata| G[Live run console]
-    F -->|recording| H[Session replay]
+    GH[GitHub Repo] -->|auto-deploy| RW[Railway\nNext.js App]
+    RW --> NEON[(Neon Postgres)]
+    RW --> TR[Trigger.dev\nBackground Worker]
+    RW --> BB[Browserbase\nCloud Browsers]
+    RW --> LB[Liveblocks\nReal-time Sync]
 ```
 
-1. **Design** — Liveblocks synchronizes nodes, edges, cursors, and presence on the React Flow canvas.
-2. **Validate** — Running a workflow validates the graph and saves its current snapshot to Postgres.
-3. **Schedule** — Trigger.dev topologically sorts connected nodes and executes them in dependency order.
-4. **Automate** — Browser nodes share one Browserbase-backed Stagehand session for the entire run.
-5. **Connect** — Node outputs are stored by node ID and interpolated into downstream inputs.
-6. **Observe** — Trigger.dev streams step status, timing, outputs, and errors back to the console.
-7. **Replay** — Completed browser runs expose their recording through a server-side replay proxy.
+### Steps
 
-<br />
+| Step | Action |
+|------|--------|
+| 1 | Push repo to GitHub and create a Railway project |
+| 2 | Choose **Deploy from GitHub repo** — Railpack auto-detects Node.js |
+| 3 | Copy all `.env.local` values into Railway service variables |
+| 4 | Run `npm run db:migrate` against the production database |
+| 5 | Run `npx trigger.dev deploy` to register the workflow task |
+| 6 | Add your Railway domain to Clerk's allowed origins |
 
-## Project Structure
+> **Build:** `npm run build` &nbsp;|&nbsp; **Start:** `npm start`
+
+---
+
+## 📁 Project Structure
 
 ```text
-app/
-├── (auth)/                     # Clerk sign-in, sign-up, and organization selection
-├── (dashboard)/                # Workflow dashboard, editor, and billing page
-└── api/
-    ├── liveblocks/             # Liveblocks authentication and user resolution
-    └── replays/                # Browserbase recording proxy
-components/
-├── app-sidebar.tsx             # Organization and workflow navigation
-└── ui/                         # Shared UI primitives
-features/
-└── workflows/
-    ├── components/             # Canvas, toolbar, inspector, console, and replay UI
-    ├── hooks/                  # Billing plan and graph connection hooks
-    ├── lib/                    # Validation, interpolation, and workflow utilities
-    ├── nodes/                  # Node registry and executor implementations
-    ├── tasks/                  # Trigger.dev workflow runner
-    ├── actions.ts              # Workflow mutations, execution, and cancellation
-    └── data.ts                 # Organization-scoped workflow queries
-lib/
-├── db/                         # Drizzle schema, Neon client, and migrations
-├── browserbase.ts              # Browserbase SDK client
-├── liveblocks.ts               # Liveblocks server client
-└── resend.ts                   # Resend client
+synapse/
+│
+├── app/
+│   ├── (auth)/              # Sign-in, sign-up, org selection (Clerk)
+│   ├── (dashboard)/         # Workflow dashboard, editor, billing
+│   └── api/
+│       ├── liveblocks/      # Liveblocks auth + user resolution
+│       └── replays/         # Browserbase session recording proxy
+│
+├── components/
+│   ├── app-sidebar.tsx      # Organization and workflow navigation
+│   └── ui/                  # Shared UI primitives (shadcn/ui)
+│
+├── features/
+│   └── workflows/
+│       ├── components/      # Canvas, toolbar, inspector, console, replay
+│       ├── hooks/           # Billing plan + graph connection hooks
+│       ├── lib/             # Validation, interpolation, graph utilities
+│       ├── nodes/           # Node registry + executor implementations
+│       ├── tasks/           # Trigger.dev workflow task definitions
+│       ├── actions.ts       # Server actions: save, run, cancel
+│       └── data.ts          # Organization-scoped DB queries
+│
+└── lib/
+    ├── db/                  # Drizzle schema, Neon client, migrations
+    ├── browserbase.ts       # Browserbase SDK client
+    ├── liveblocks.ts        # Liveblocks server client
+    └── resend.ts            # Resend email client
 ```
 
 ---
 
-## Scripts
+## 🛠️ Scripts
 
 | Command | Description |
 |---------|-------------|
-| `npm run dev` | Start the Next.js development server |
-| `npm run build` | Create a production build |
-| `npm start` | Start the production server |
+| `npm run dev` | Start Next.js dev server |
+| `npm run build` | Production build |
+| `npm start` | Start production server |
 | `npm run lint` | Run ESLint |
-| `npm run format` | Format TypeScript and TSX files with Prettier |
-| `npm run typecheck` | Run TypeScript without emitting files |
+| `npm run format` | Prettier format (TS/TSX) |
+| `npm run typecheck` | TypeScript type check |
 | `npm run db:generate` | Generate Drizzle migrations |
-| `npm run db:migrate` | Apply Drizzle migrations |
-| `npm run db:push` | Push the Drizzle schema directly to the database |
+| `npm run db:migrate` | Apply migrations to Neon |
+| `npm run db:push` | Push schema directly (prototyping) |
 | `npm run db:studio` | Open Drizzle Studio |
 
-<br />
+---
 
-## Stack
+## 🧰 Tech Stack
 
-| Technology | Purpose |
-|------------|---------|
-| Next.js 16 and React 19 | Application framework and interface |
-| React Flow | Visual workflow canvas |
-| Liveblocks | Collaborative graph state, cursors, and presence |
-| Trigger.dev | Durable workflow execution, retries, cancellation, and live run metadata |
-| Stagehand | AI-powered browser actions, extraction, observation, and agents |
-| Browserbase | Managed browser sessions, model gateway, and session recordings |
-| Clerk | Authentication, organizations, and subscription plans |
-| Neon and Drizzle | Serverless Postgres and typed database access |
-| Resend | Email workflow execution |
-| Sentry | Frontend, server, edge, and background-task monitoring |
+```mermaid
+graph TD
+    subgraph Frontend["🖥️ Frontend"]
+        A["Next.js 16\n(App Router)"]
+        B["React 19"]
+        C["React Flow\n(visual canvas)"]
+        D["Tailwind CSS v4"]
+        E["shadcn/ui"]
+    end
+
+    subgraph Realtime["🔄 Real-Time"]
+        F["Liveblocks\n(cursors · presence · state)"]
+    end
+
+    subgraph Auth["🔐 Auth & Billing"]
+        G["Clerk\n(auth · orgs · billing)"]
+    end
+
+    subgraph Jobs["⚙️ Jobs"]
+        H["Trigger.dev\n(durable tasks · retries)"]
+        I["Stagehand\n(AI browser control)"]
+        J["Browserbase\n(cloud browsers · replay)"]
+    end
+
+    subgraph Data["💾 Data"]
+        K["Neon\n(serverless Postgres)"]
+        L["Drizzle ORM"]
+    end
+
+    subgraph Comms["📬 Comms & Ops"]
+        M["Resend\n(email)"]
+        N["Sentry\n(monitoring)"]
+        O["Railway\n(hosting)"]
+    end
+
+    A --> B --> C
+    A --> F
+    A --> G
+    A --> H
+    H --> I --> J
+    A --> K
+    K --> L
+```
+
+| Layer | Technology | Role |
+|-------|-----------|------|
+| **Framework** | Next.js 16 + React 19 | Full-stack app with App Router and Server Actions |
+| **Canvas** | React Flow | Visual drag-and-drop workflow editor |
+| **Collaboration** | Liveblocks | Shared canvas state, live cursors, and user presence |
+| **Jobs** | Trigger.dev | Durable background execution with retries and cancellation |
+| **AI Automation** | Stagehand | Natural-language browser control and autonomous agents |
+| **Browser Runtime** | Browserbase | Managed cloud browsers, model gateway, session recordings |
+| **Auth** | Clerk | Authentication, organizations, and subscription gating |
+| **Database** | Neon + Drizzle | Serverless Postgres with type-safe queries |
+| **Email** | Resend | Transactional email from workflow nodes |
+| **Monitoring** | Sentry | Full-stack error and performance tracking |
+| **Hosting** | Railway | Zero-config deployment from GitHub |
+
+---
+
+<div align="center">
+
+**Built with ❤️ using Next.js, Stagehand, Trigger.dev, and Liveblocks**
+
+</div>
